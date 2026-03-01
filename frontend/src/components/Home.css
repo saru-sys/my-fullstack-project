@@ -1,0 +1,88 @@
+/* Container & header */
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+header h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+header .welcome {
+  font-size: 20px;
+  color: #f0f0f0;
+}
+
+/* Section titles */
+.section {
+  margin-bottom: 50px;
+}
+
+.section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  border-left: 6px solid #f5a623;
+  padding-left: 10px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Card layout */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Individual card */
+.card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+}
+
+/* Card headings */
+.card h3 {
+  margin: 15px 0 10px;
+}
+
+/* Buttons */
+.btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+  background: linear-gradient(45deg, #f5a623, #f8e71c);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
