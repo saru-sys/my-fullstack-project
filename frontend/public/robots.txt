@@ -1,3 +1,8 @@
-# https://www.robotstxt.org/robotstxt.html
-User-agent: *
-Disallow:
+git status
+
+
+
+
+pwd   # On Linux/Mac
+cd    # On Windows PowerShell
+

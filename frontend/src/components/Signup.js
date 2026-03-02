@@ -13,7 +13,7 @@ export default function Signup() {
 
     const users = JSON.parse(localStorage.getItem("users") || "[]");
 
-    // Check if email already exists
+    
     if (users.find(u => u.email === email)) {
       alert("Email already registered!");
       return;
@@ -24,7 +24,7 @@ export default function Signup() {
 
     alert("Signup successful! Please login.");
 
-    // ✅ Navigate to Login page after signup
+   
     navigate("/login");
   };
 

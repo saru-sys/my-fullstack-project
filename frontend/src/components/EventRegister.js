@@ -1,44 +1,70 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
+import axios from "axios";
 
 export default function EventRegister() {
+  const { id } = useParams();
+  const navigate = useNavigate();
   const location = useLocation();
-  const { eventTitle } = location.state || { eventTitle: "Event" };
+
+  const eventTitle = location.state?.eventTitle || "Event";
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [success, setSuccess] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Demo only, no backend yet
-    setMessage(`Successfully registered for "${eventTitle}"! 🎉`);
-    setName("");
-    setEmail("");
+
+    try {
+      await axios.post(
+        `http://localhost:5000/api/events/${id}/register`,
+        { name, email }
+      );
+
+      setSuccess(true);   // Show success message
+    } catch (error) {
+      console.log(error);
+      alert("Registration failed");
+    }
   };
 
   return (
-    <div className="auth-container">
-      <h2>Register for {eventTitle}</h2>
-      {!message ? (
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h2>Register for: {eventTitle}</h2>
+
+      {!success ? (
         <form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Your Name"
+            required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            required
           />
+          <br /><br />
+
           <input
             type="email"
             placeholder="Your Email"
+            required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
-          <button type="submit">Register</button>
+          <br /><br />
+
+          <button type="submit">Submit</button>
         </form>
       ) : (
-        <p style={{ fontSize: "18px", marginTop: "20px" }}>{message}</p>
+        <>
+          <h3 style={{ color: "green" }}>
+            ✅ Successfully Registered!
+          </h3>
+
+          <button onClick={() => navigate("/home")}>
+            Back to Home
+          </button>
+        </>
       )}
     </div>
   );

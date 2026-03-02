@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Auth.css"; // your existing styles
+import "./Auth.css"; 
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -10,16 +10,16 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Demo auth using localStorage
+    
     const users = JSON.parse(localStorage.getItem("users") || "[]");
     const user = users.find(u => u.email === email && u.password === password);
 
     if (user) {
-      localStorage.setItem("token", "demo-token"); // simple token
+      localStorage.setItem("token", "demo-token"); 
       localStorage.setItem("currentUser", JSON.stringify(user));
       alert("Login successful! 🎉");
 
-      // Navigate to Home page after login
+      
       navigate("/home");
     } else {
       alert("Login failed. Check email/password.");
@@ -30,7 +30,7 @@ export default function Login() {
     <div className="auth-container">
       {/* Portal title */}
       <h1 style={{ marginBottom: "10px", color: "#333", fontSize: "24px" }}>
-        🎓 Campus Connect Portal
+        🎓 Student Study Resources & Events Portal
       </h1>
       <p style={{ marginBottom: "20px", color: "#555", fontSize: "16px" }}>
         Access your campus study resources and register for events
